@@ -5,7 +5,6 @@ const text_content = document.querySelector(".text_content");
 const video_content = document.querySelector(".video_content");
 
 let index = 0;
-let animationOngoing = false;
 
 let camillaVideo;
 
@@ -28,32 +27,37 @@ function fetchFiles() {
 }
 
 function run1stScreen() {
+    console.log("Running 1st screen");
     let textContent = "Assignment: 14C.01.05 GTA intro";
     text_content.classList.add("intro_text");
 
-    typewriterEffect(textContent, run2ndScreen());
-    if (!animationOngoing) {
-        console.log("done");
-    }
+    typewriterEffect(textContent, run2ndScreen);
 }
 
 function typewriterEffect(text, nextFunction) {
-    // animationOngoing = true;
-    // if (index <= text.length) {
-    //     console.log(index);
-    //     text_content.textContent = text.substring(0, index);
-    //     index++;
-    //     setTimeout(function() {
-    // typewriterEffect(text);
-    //         }
-    // , 200);
-    // }
-    // else {
-        nextFunction;
-    // }
+    if (index <= text.length) {
+        text_content.textContent = text.substring(0, index);
+        index++;
+        setTimeout(function() {
+    typewriterEffect(text, nextFunction);
+            }
+    , 80);
+    }
+    else {
+        nextFunction && nextFunction();
+    }
 }
 
 function run2ndScreen() {
+    console.log("Running 2nd screen");
+
+    let textContent = "Project by:";
+
+    typewriterEffect(textContent, run3rdScreen);
+}
+
+function run3rdScreen() {
+    console.log("Running 3rd screen");
     text_content.style.display = "none";
     video_content.innerHTML = camillaVideo;
 }
