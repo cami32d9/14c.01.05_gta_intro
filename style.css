@@ -1,0 +1,35 @@
+:root {
+    --var-content-font: 'Press Start 2P', cursive;
+}
+
+body {
+    margin: 0;
+    font-family: var(--var-content-font);
+    color: white;
+}
+
+.video_container {
+    width: 800px;
+    height: 450px;
+    background-color: black;
+
+    /* Places the video in the middle of the screen */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50% );
+}
+
+.text_content {
+    /* Places the video in the middle of the screen */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50% );
+}
+
+.intro_text {
+    font-size: 2rem;
+    line-height: 3rem;
+    text-align: center;
+}
