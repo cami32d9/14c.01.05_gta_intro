@@ -33,3 +33,8 @@ body {
     line-height: 3rem;
     text-align: center;
 }
+
+.video_content {
+    width: 100%;
+    height: 100%;
+}
