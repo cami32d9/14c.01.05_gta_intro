@@ -41,7 +41,7 @@ function typewriterEffect(text, nextFunction) {
         setTimeout(function() {
     typewriterEffect(text, nextFunction);
             }
-    , 80);
+    , 200);
     }
     else {
         nextFunction && nextFunction();
