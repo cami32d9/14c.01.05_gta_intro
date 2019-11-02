@@ -8,19 +8,22 @@ let index = 0;
 
 let camillaVideo;
 let logo;
+let camilla;
 
 function fetchFiles() {
 
-    const video1 = fetch("elements/video1.svg").then(r => r.text());
+    const camillaVideoSVG = fetch("elements/video1.svg").then(r => r.text());
     const logoSVG = fetch("elements/Pc.svg").then(r => r.text());
+    const camillaSVG = fetch("elements/Camilla.svg").then(r => r.text());
 
     Promise
-        .all([video1, logoSVG])
+        .all([camillaVideoSVG, logoSVG, camillaSVG])
         .then(
             function(responses) {
-                const [video1, logoSVG] = responses;
-                camillaVideo = video1;
+                const [camillaVideoSVG, logoSVG, camillaSVG] = responses;
+                camillaVideo = camillaVideoSVG;
                 logo = logoSVG;
+                camilla = camillaSVG;
                 run1stScreen();
             }
         );
@@ -59,15 +62,22 @@ function run2ndScreen() {
 }
 
 function run2ndScreenPt2() {
-    setTimeout(function() {
         video_container.innerHTML += `<div class="logo">${logo}</div>`;
-        // setTimeout(run3rdScreen, 2000);
-    }, 2000)
+        video_container.addEventListener("animationend", function _function() {
+            setTimeout(run3rdScreen, 2000);
+            video_container.removeEventListener("animationend", _function);
+        });
 }
 
 function run3rdScreen() {
-    console.log("Running 3rd screen");
     text_content.style.display = "none";
     video_container.innerHTML = camillaVideo;
-    console.log("Still working");
+
+    setTimeout(run4thScreen, 2000);
+}
+
+function run4thScreen() {
+    console.log("4");
+    video_container.innerHTML = `<div class="character">${camilla}</div>`;
+
 }
