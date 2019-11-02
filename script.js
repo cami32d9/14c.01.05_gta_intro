@@ -1,26 +1,26 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", fetchFiles);
+const video_container = document.querySelector(".video_container");
 const text_content = document.querySelector(".text_content");
-const video_content = document.querySelector(".video_content");
 
 let index = 0;
 
 let camillaVideo;
+let logo;
 
 function fetchFiles() {
 
     const video1 = fetch("elements/video1.svg").then(r => r.text());
-    const circle2 = fetch("elements/test.svg").then(r => r.text());
+    const logoSVG = fetch("elements/Pc.svg").then(r => r.text());
 
     Promise
-        .all([video1])
+        .all([video1, logoSVG])
         .then(
             function(responses) {
-                const [video1] = responses;
-                // document.querySelector(".video_container").innerHTML = circle;
+                const [video1, logoSVG] = responses;
                 camillaVideo = video1;
-                // document.querySelector(".video_container").innerHTML += circle2;
+                logo = logoSVG;
                 run1stScreen();
             }
         );
@@ -41,23 +41,33 @@ function typewriterEffect(text, nextFunction) {
         setTimeout(function() {
     typewriterEffect(text, nextFunction);
             }
-    , 200);
+    , 80);
     }
     else {
+        index = 0;
         nextFunction && nextFunction();
     }
 }
 
 function run2ndScreen() {
+    text_content.classList.remove("intro_text");
+    text_content.classList.add("logo_text");
     console.log("Running 2nd screen");
 
     let textContent = "Project by:";
+    typewriterEffect(textContent, run2ndScreenPt2);
+}
 
-    typewriterEffect(textContent, run3rdScreen);
+function run2ndScreenPt2() {
+    setTimeout(function() {
+        video_container.innerHTML += `<div class="logo">${logo}</div>`;
+        // setTimeout(run3rdScreen, 2000);
+    }, 2000)
 }
 
 function run3rdScreen() {
     console.log("Running 3rd screen");
     text_content.style.display = "none";
-    video_content.innerHTML = camillaVideo;
+    video_container.innerHTML = camillaVideo;
+    console.log("Still working");
 }
