@@ -1,3 +1,5 @@
+/* ----- VIDEO -----*/
+
 :root {
     --var-content-font: 'Press Start 2P', cursive;
 }
@@ -21,8 +23,15 @@ body {
     transform: translateX(-50%) translateY(-50% );
 }
 
+.text_content {
+    display: none;
+}
+
+
+/* ----- SCREEN 1 -----*/
 
 .intro_text {
+    display: block;
     font-size: 2rem;
     line-height: 3rem;
     text-align: center;
@@ -32,7 +41,7 @@ body {
     transform: translateX(-50%) translateY(-50% );
 }
 
-/*----- LOGO -----*/
+/*----- SCREEN 2 -----*/
 
 .logo {
     position: fixed;
@@ -55,11 +64,53 @@ body {
 }
 
 .logo_text {
+    display: block;
     font-size: 2rem;
     line-height: 3rem;
     text-align: center;
     margin-top: 10%;
 }
+
+
+/* ----- CHARACTERS ----- */
+
+.character_container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.character {
+    position: fixed;
+    left: -20%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.character svg {
+    height: 100%;
+    width: 100%;
+}
+
+.camilla {
+    animation-name: slide_in_left_kf;
+    width: 20%;
+    transform: translateY(-54%);
+}
+
+.julie {
+    animation-name: slide_in_right_kf;
+    width: 24%;
+}
+
+
+/* ----- KEY FRAMES ----- */
 
 @keyframes fade_in_kf {
     0% {
@@ -71,32 +122,22 @@ body {
     }
 }
 
-/* ----- CHARACTERS ----- */
-
-.character {
-    width: 20%;
-    position: fixed;
-    left: -20%;
-    top: 50%;
-    transform: translateY(-50%);
-
-    animation-name: slide_in_kf;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-.character svg {
-    height: 100%;
-    width: 100%;
-}
-
-@keyframes slide_in_kf {
+@keyframes slide_in_left_kf {
     0% {
         left: -20%;
     }
 
     100% {
         left: 75%;
+    }
+}
+
+@keyframes slide_in_right_kf {
+    0% {
+        left: 120%;
+    }
+
+    100% {
+        left: 5%;
     }
 }
