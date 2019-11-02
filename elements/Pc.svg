@@ -2,7 +2,11 @@
 
   <defs>
 
-    <filter id="filter">
+    <filter id="logoGlitch">
+
+      <!--  Text glitch by Dirk Weber:
+      https://codepen.io/DirkWeber/pen/ArFvk -->
+
       <feFlood flood-color="red" result="flood1" />
       <feFlood flood-color="limegreen" result="flood2" />
       <feOffset in="SourceGraphic" dx="3" dy="0" result="off1a"/>
@@ -78,11 +82,11 @@
 
   <title>Pc</title>
   <rect x="20.34" y="6.41" width="133.67" height="67.94" rx="5.59" ry="5.59" fill="#565656"/>
-  <rect x="28.18" y="12.38" width="117.17" height="54.3" rx="5.27" ry="5.27" fill="#f2f2f2"/>
+  <rect id="logo_screen" x="28.18" y="12.38" width="117.17" height="54.3" rx="5.27" ry="5.27" fill="#f2f2f2"/>
   <path d="M151.21,75.85H24.47L2.68,121.93a4.15,4.15,0,0,0,4,4H168.31c2.85-.72,4.44-2,3.35-4.35Z" fill="#565656"/>
   <polygon points="30.36 79.42 146.54 79.42 157.43 106.55 20.01 106.55 30.36 79.42" fill="#aaa"/>
   <rect x="67" y="109.15" width="40.76" height="13.29" fill="#aaa"/>
-  <g id="text" filter="url(#filter)">
+  <g id="text" filter="url(#logoGlitch)">
   <g>
     <path d="M42.54,41.49v.73H40.81v-.73a.08.08,0,0,0-.09-.09H35a.08.08,0,0,0-.09.09v5.75a.08.08,0,0,0,.09.09h5.73a.08.08,0,0,0,.09-.09V45.47H38.7V43.76h3.85v3.48A1.73,1.73,0,0,1,42,48.52a1.76,1.76,0,0,1-1.29.53H35a1.8,1.8,0,0,1-1.81-1.81V41.49A1.8,1.8,0,0,1,35,39.69h5.73a1.76,1.76,0,0,1,1.29.53A1.73,1.73,0,0,1,42.54,41.49Z"/>
     <path d="M49.78,41.51a1.8,1.8,0,0,1,1.79,1.79V49H45.72a1.8,1.8,0,0,1-1.79-1.79V44.42h6V43.3a.08.08,0,0,0-.09-.09H43.92v-1.7Zm.09,5.84V46.13H45.62v1.12a.08.08,0,0,0,.09.09Z"/>

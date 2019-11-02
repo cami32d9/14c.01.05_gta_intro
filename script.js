@@ -11,6 +11,20 @@ let logo;
 let camilla;
 let julie;
 
+
+// Font scaling function from:
+// https://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container/20968345#20968345
+document.body.setScaledFont = function(f) {
+    var s = this.offsetWidth, fs = s * f;
+    this.style.fontSize = fs + '%';
+    return this
+};
+
+document.body.setScaledFont(0.12);
+window.onresize = function() {
+    document.body.setScaledFont(0.12);
+}
+
 function fetchFiles() {
 
     const camillaVideoSVG = fetch("elements/video1.svg").then(r => r.text());
@@ -38,7 +52,7 @@ function run1stScreen() {
     let textContent = "Assignment: 14C.01.05 GTA intro";
     text_content.classList.add("intro_text");
 
-    typewriterEffect(textContent, run2ndScreen);
+    typewriterEffect(textContent, run2ndScreen, 2000);
 }
 
 // Project by:
@@ -73,9 +87,9 @@ function run4thScreen() {
     document.querySelector(".video_content").innerHTML = "";
     document.querySelector(".character_container").innerHTML = `<div class="character camilla">${camilla}</div>`;
     document.querySelector(".character").addEventListener("animationend", function() {
-        document.querySelector(".text_content").classList.add("intro_text");
+        document.querySelector(".text_content").classList.add("character_text");
         let textContent = "Camilla The programmer ... and CTR freak";
-        typewriterEffect(textContent, run5thScreen);
+        typewriterEffect(textContent, run5thScreen, 2000);
     })
 }
 
@@ -118,18 +132,19 @@ function run7thScreen() {
 
 // --------------------------------------------
 
-function typewriterEffect(text, nextFunction) {
-    console.log(text);
+function typewriterEffect(text, nextFunction, delay) {
+    console.log(delay);
     if (index <= text.length) {
         document.querySelector(".text_content").innerHTML = text.substring(0, index);
         index++;
         setTimeout(function() {
-                typewriterEffect(text, nextFunction);
+                typewriterEffect(text, nextFunction, delay);
             }
             , 80);
     }
     else {
         index = 0;
-        nextFunction && nextFunction();
+        setTimeout(nextFunction && nextFunction
+            , delay);
     }
 }

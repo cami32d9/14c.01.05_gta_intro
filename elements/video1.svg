@@ -1,4 +1,4 @@
-<svg width="800" height="450" viewBox="0 0 800 450">
+<svg id="videoSVG" width="800" height="450" viewBox="0 0 800 450">
 
     <defs>
         <clipPath id="videoClip">
@@ -10,7 +10,7 @@
     </defs>
 
     <!--  VIDEO  -->
-    <foreignObject clip-path="url(#videoClip)" id="thisVideoThing" width="800" height="450">
+    <foreignObject id="thisVideoThing" width="800" height="450">
         <video autoplay="true" muted="true" width="100%">
             <source src="elements/camilla_video.mp4"/>
         </video>
