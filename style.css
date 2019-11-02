@@ -5,6 +5,7 @@
 }
 
 body {
+    background-color: #242424;
     margin: 0;
     font-family: var(--var-content-font);
     color: white;
@@ -39,6 +40,10 @@ body {
 /*    transform: translateX(-50%) translateY(-50% );*/
 /*}*/
 
+.full_screen {
+
+}
+
 .text_content {
     display: none;
 }
@@ -60,7 +65,7 @@ body {
 /*----- SCREEN 2 -----*/
 
 .logo {
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 35%;
     transform: translateX(-50%);
@@ -133,13 +138,19 @@ body {
 
 .character_text {
     display: block;
-    font-size: 150%;
+    font-size: 130%;
     line-height: 150%;
     text-align: center;
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50% );
+}
+
+/* ----- END SCREEN ----- */
+
+.narrow {
+    width: 42%;
 }
 
 /* ----- KEY FRAMES ----- */
