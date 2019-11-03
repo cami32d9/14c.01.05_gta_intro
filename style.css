@@ -10,10 +10,7 @@ body {
   font-family: var(--var-content-font);
   color: white;
 }
-#music a {
-  font-size: 10px;
-  background-color: hotpink;
-}
+
 .video_container {
   /* @see https://stackoverflow.com/a/20593342/1155596 */
   background-color: black;
@@ -91,7 +88,6 @@ body {
   text-align: center;
   margin-top: 7%;
 }
-
 /* ----- VIDEO ----- */
 
 #videoSVG {

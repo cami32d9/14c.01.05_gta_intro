@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", fetchFiles);
 const video_container = document.querySelector(".video_container");
 const text_content = document.querySelector(".text_content");
+document.querySelector("#music").loop = true;
 
 let index = 0;
 
@@ -11,8 +12,6 @@ let camillaVideo;
 let logo;
 let camilla;
 let julie;
-
-document.querySelector("#music").loop = true;
 
 // Font scaling function from:
 // https://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container/20968345#20968345
