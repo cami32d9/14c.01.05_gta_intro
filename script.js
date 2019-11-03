@@ -23,22 +23,24 @@ document.body.setScaledFont = function (f) {
 
 document.body.setScaledFont(0.12);
 window.onresize = function () {
-    document.body.setScaledFont(0.12);
+    document.body.setScaledFont(0.12) ;
 };
 
 function fetchFiles() {
 
-    const camillaVideoSVG = fetch("elements/video1.svg").then(r => r.text());
+  const camillaVideoSVG = fetch("elements/video1.svg").then(r => r.text());
+  const julieVideoSVG = fetch("elements/video2.svg").then(r => r.text());
     const logoSVG = fetch("elements/Pc.svg").then(r => r.text());
     const camillaSVG = fetch("elements/Camilla.svg").then(r => r.text());
     const julieSVG = fetch("elements/Julie.svg").then(r => r.text());
 
     Promise
-        .all([camillaVideoSVG, logoSVG, camillaSVG, julieSVG])
+        .all([camillaVideoSVG, julieVideoSVG, logoSVG, camillaSVG, julieSVG])
         .then(
             function (responses) {
-                const [camillaVideoSVG, logoSVG, camillaSVG, julieSVG] = responses;
+                const [camillaVideoSVG, julieVideoSVG, logoSVG, camillaSVG, julieSVG] = responses;
                 camillaVideo = camillaVideoSVG;
+              julieVideo = julieVideoSVG;
                 logo = logoSVG;
                 camilla = camillaSVG;
                 julie = julieSVG;
@@ -109,7 +111,7 @@ function run5thScreen() {
     document.querySelector(".character_container").innerHTML = "";
     document.querySelector(".text_content").classList.remove("character_text");
     text_content.classList.remove("logo_text");
-    document.querySelector(".video_content").innerHTML = camillaVideo;
+    document.querySelector(".video_content").innerHTML = julieVideo;
 
     setTimeout(run6thScreen, 5000);
 }

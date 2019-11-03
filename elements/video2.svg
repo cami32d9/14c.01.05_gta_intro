@@ -107,7 +107,7 @@
     <!--  VIDEO  -->
     <foreignObject class="animateMe" clip-path="url(#videoClip)" id="thisVideoThing" width="800" height="450">
         <video autoplay="true" muted="true" width="100%">
-            <source src="elements/camilla_video.mp4"/>
+            <source src="elements/J_video.mp4"/>
         </video>
     </foreignObject>
 </svg>
