@@ -1,0 +1,18 @@
+<svg id="videoSVG" width="800" height="450" viewBox="0 0 800 450">
+
+    <defs>
+        <clipPath id="videoClip">
+        <polygon id="clip1" points="10 150, 100 200, 100 350, 10 300" fill="blue"/>
+        <polygon id="clip2" points="150 100, 200 150, 200 300, 150 250" fill="blue"/>
+        <polygon id="clip3" points="250 50, 300 100, 300 250, 250 200" fill="blue"/>
+        <polygon id="clip4" points="350 50, 400 100, 400 250, 350 200" fill="blue"/>
+        </clipPath>
+    </defs>
+
+    <!--  VIDEO  -->
+    <foreignObject id="thisVideoThing" width="800" height="450">
+        <video autoplay="true" muted="true" width="100%">
+            <source src="elements/J_video.mp4"/>
+        </video>
+    </foreignObject>
+</svg>
