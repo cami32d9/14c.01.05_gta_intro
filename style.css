@@ -138,7 +138,7 @@ body {
 
 .character_text {
     display: block;
-    font-size: 130%;
+    font-size: 125%;
     line-height: 150%;
     text-align: center;
     position: fixed;
@@ -150,7 +150,7 @@ body {
 /* ----- END SCREEN ----- */
 
 .narrow {
-    width: 42%;
+    width: 40%;
 }
 
 /* ----- KEY FRAMES ----- */
