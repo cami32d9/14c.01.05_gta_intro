@@ -7,6 +7,7 @@ const text_content = document.querySelector(".text_content");
 let index = 0;
 
 let camillaVideo;
+let julieVideo;
 let logo;
 let camilla;
 let julie;
