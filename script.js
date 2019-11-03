@@ -12,6 +12,8 @@ let logo;
 let camilla;
 let julie;
 
+let musicVolume = 1;
+
 
 // Font scaling function from:
 // https://stackoverflow.com/questions/16056591/font-scaling-based-on-width-of-container/20968345#20968345
@@ -44,13 +46,23 @@ function fetchFiles() {
                 logo = logoSVG;
                 camilla = camillaSVG;
                 julie = julieSVG;
-                run1stScreen();
+                addStartButtonClick();
             }
         );
 }
 
+function addStartButtonClick() {
+    document.querySelector(".start_button").addEventListener("click", function _listener() {
+
+        document.querySelector(".start_button").removeEventListener("click", _listener);
+        document.querySelector(".start_button").style.display = "none";
+        setTimeout(run1stScreen, 200);
+    });
+}
+
 // Assignment title
 function run1stScreen() {
+    document.querySelector('#music').play();
     console.log("Running 1st screen");
     let textContent = "Assignment: 14C.01.05 GTA intro";
     document.querySelector(".text_content").classList.add("intro_text");
@@ -159,10 +171,10 @@ function run7thScreen() {
 function run7thScreenPt2() {
     let textContent = "... to play video games";
     document.querySelector(".text_content_2").innerHTML = "<br>";
-    typewriterEffect(textContent, null, ".text_content_3");
+    typewriterEffect(textContent, fadeMusic, ".text_content_3", 500);
 }
 
-// --------------------------------------------
+// ----- HELPER FUNCTIONS -----
 
 function typewriterEffect(text, nextFunction, destination, delay) {
     console.log(delay);
@@ -178,4 +190,13 @@ function typewriterEffect(text, nextFunction, destination, delay) {
         setTimeout(nextFunction && nextFunction
             , delay);
     }
+}
+
+function fadeMusic() {
+        if(musicVolume > 0){
+            musicVolume = musicVolume - 0.01;
+            console.log(musicVolume);
+            document.querySelector("#music").volume = musicVolume;
+            setTimeout(fadeMusic,50);
+        }
 }
